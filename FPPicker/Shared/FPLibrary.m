@@ -222,6 +222,10 @@
                            failure:(FPUploadAssetFailureBlock)failure
                           progress:(FPUploadAssetProgressBlock)progress
 {
+    // Return immediately without uploading the file
+    failure(nil, nil);
+    return;
+    
     // Initialize preprocessors
 
     FPVideoUploadPreprocessorBlock videoUploadPreprocessorBlock = [FPConfig sharedInstance].videoUploadPreprocessorBlock;
