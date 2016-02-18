@@ -118,28 +118,28 @@
     fetchOptions.predicate = [NSPredicate predicateWithFormat:predicateFormat
                                                 argumentArray:arguments];
 
-    PHFetchResult *userAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum
-                                                                         subtype:PHAssetCollectionSubtypeAny
-                                                                         options:nil];
-
-    [userAlbums enumerateObjectsUsingBlock: ^(PHAssetCollection *collection, NSUInteger idx, BOOL *stop) {
+    PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum
+                                                                          subtype:PHAssetCollectionSubtypeAlbumRegular
+                                                                          options:nil];
+    
+    [smartAlbums enumerateObjectsUsingBlock: ^(PHAssetCollection *collection, NSUInteger idx, BOOL *stop) {
         PHFetchResult *assetsFetchResult = [PHAsset fetchAssetsInAssetCollection:collection
                                                                          options:fetchOptions];
-
+        
         if (assetsFetchResult.count > 0)
         {
             [collector addObject:collection];
         }
     }];
-
-    PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum
-                                                                          subtype:PHAssetCollectionSubtypeAlbumRegular
-                                                                          options:nil];
-
-    [smartAlbums enumerateObjectsUsingBlock: ^(PHAssetCollection *collection, NSUInteger idx, BOOL *stop) {
+    
+    PHFetchResult *userAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum
+                                                                         subtype:PHAssetCollectionSubtypeAny
+                                                                         options:nil];
+    
+    [userAlbums enumerateObjectsUsingBlock: ^(PHAssetCollection *collection, NSUInteger idx, BOOL *stop) {
         PHFetchResult *assetsFetchResult = [PHAsset fetchAssetsInAssetCollection:collection
-                                                                         options:fetchOptions];
-
+                                                                         options:nil];
+        
         if (assetsFetchResult.count > 0)
         {
             [collector addObject:collection];
