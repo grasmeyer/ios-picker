@@ -132,11 +132,11 @@
 
             if (count == 1)
             {
-                title = @"Upload 1 file";
+                title = @"Select 1 file";
             }
             else
             {
-                title = [NSString stringWithFormat:@"Upload %ld files", (long)count];
+                title = [NSString stringWithFormat:@"Select %ld files", (long)count];
             }
 
             [self.uploadBarButton setTitle:title];
