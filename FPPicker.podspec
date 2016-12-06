@@ -61,7 +61,6 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.ios.resource_bundle = { 'FPPicker' => 'Resources/*.*' }
-  s.osx.resource_bundle = { 'FPPicker' => 'Resources/*.*', 'FPPickerMac' => 'Resources-Mac/*.*' }
-
+  s.ios.resource_bundle = { 'FPPicker' => 'Resources-Shared/*.*' }
+  s.osx.resource_bundle = { 'FPPicker' => 'Resources-Shared/*.*', 'FPPickerMac' => 'Resources-Mac/*.*' }
 end
